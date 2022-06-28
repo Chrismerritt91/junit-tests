@@ -6,6 +6,12 @@ public class Student {
     private String name;
     private ArrayList<Integer> grades;
 
+    public Student() {
+        this.grades = new ArrayList<>();
+    }
+
+
+
     public Student(long id, String name) {
         this.id = id;
         this.name = name;
@@ -33,6 +39,14 @@ public class Student {
         for (int grade: this.grades) {
             sum += grade;
         }
-        return sum / this.grades.size() ;
+
+        double divisor = (this.grades.size() == 0) ? 1 : this.grades.size();
+
+        return sum / divisor ;
+    }
+
+    public void updateGrade(int index, int value){
+
+        this.grades.set(index,value);
     }
 }
